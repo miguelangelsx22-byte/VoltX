@@ -1,0 +1,378 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "VoltX Scripthub",
+   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   LoadingTitle = "Loading VoltX Scripthub",
+   LoadingSubtitle = "Miggy",
+   ShowText = "Rayfield", -- for mobile users to unhide rayfield, change if you'd like
+   Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+
+   ToggleUIKeybind = "K", -- The keybind to toggle the UI visibility (string like "K" or Enum.KeyCode)
+
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+
+   Discord = {
+      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local MainTab = Window:CreateTab("Main", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("Main")
+
+local AdminButton = MainTab:CreateButton({
+   Name = "InfYield Admin",
+   Callback = function()
+   loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+-- The function that takes place when the button is pressed
+   end,
+})
+
+local ESPButton = MainTab:CreateButton({
+   Name = "ESP",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/zzerexx/scripts/main/UniversalEspUI.lua"))()
+   end,
+})
+
+local SpeedButton = MainTab:CreateButton({
+   Name = "SpeedGui",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/TIG0Z/mRXScripts/refs/heads/main/speed-1.txt"))()
+   end,
+})
+
+
+
+
+
+
+
+local TSBTab = Window:CreateTab("TSB", nil) -- Title, Image
+
+local OPButton = TSBTab:CreateButton({
+   Name = "Phantasm",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/ATrainz/Phantasm/refs/heads/main/Games/TSB.lua"))()
+   end,
+})
+
+
+
+local OPButton = TSBTab:CreateButton({
+   Name = "Auto Block",
+   Callback = function()
+   loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/6f502e252308fb97855295005faa73a0.lua"))()
+   end,
+})
+
+
+
+
+local OPButton = TSBTab:CreateButton({
+   Name = "Auto Farm",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/sparksnaps/AutoFarm/refs/heads/main/Lua"))()
+   end,
+})
+
+
+local NightsTab = Window:CreateTab("99Nights", nil) -- Title, Image
+
+local Button = NightsTab:CreateButton({
+   Name = "Void Ware",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/nightsintheforest.lua", true))()
+   end,
+})
+
+
+
+
+
+local BloxFruitsTab = Window:CreateTab("bloxFruits", nil) -- Title, Image
+
+
+local Button = BloxFruitsTab:CreateButton({
+   Name = "Aimlock",
+   Callback = function()
+   --FE Simple AimLock Script | Released Nov 2021 | Working.
+local Area = game:GetService("Workspace")
+local RunService = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local MyCharacter = LocalPlayer.Character
+local MyRoot = MyCharacter:FindFirstChild("HumanoidRootPart")
+local MyHumanoid = MyCharacter:FindFirstChild("Humanoid")
+local Mouse = LocalPlayer:GetMouse()
+local MyView = Area.CurrentCamera
+local MyTeamColor = LocalPlayer.TeamColor
+local HoldingM2 = false
+local Active = false
+local Lock = false
+local Epitaph = .187 ---Note: The Bigger The Number, The More Prediction.
+local HeadOffset = Vector3.new(0, .1, 0)
+
+_G.TeamCheck = false
+_G.AimPart = "HumanoidRootPart"
+_G.Sensitivity = 0
+_G.CircleSides = 64
+_G.CircleColor = Color3.fromRGB(255, 0, 130)
+_G.CircleTransparency = 0
+_G.CircleRadius = 200
+_G.CircleFilled = false
+_G.CircleVisible = true
+_G.CircleThickness = 1
+
+local FOVCircle = Drawing.new("Circle")
+FOVCircle.Position = Vector2.new(MyView.ViewportSize.X / 2, MyView.ViewportSize.Y / 2)
+FOVCircle.Radius = _G.CircleRadius
+FOVCircle.Filled = _G.CircleFilled
+FOVCircle.Color = _G.CircleColor
+FOVCircle.Visible = _G.CircleVisible
+FOVCircle.Transparency = _G.CircleTransparency
+FOVCircle.NumSides = _G.CircleSides
+FOVCircle.Thickness = _G.CircleThickness
+
+local function CursorLock()
+	UIS.MouseBehavior = Enum.MouseBehavior.LockCenter
+end
+local function UnLockCursor()
+	HoldingM2 = false Active = false Lock = false 
+	UIS.MouseBehavior = Enum.MouseBehavior.Default
+end
+function FindNearestPlayer()
+	local dist = math.huge
+	local Target = nil
+	for _, v in pairs(Players:GetPlayers()) do
+		if v ~= LocalPlayer and v.Character:FindFirstChild("Humanoid") and v.Character:FindFirstChild("Humanoid").Health > 0 and v.Character:FindFirstChild("HumanoidRootPart") and v then
+			local TheirCharacter = v.Character
+			local CharacterRoot, Visible = MyView:WorldToViewportPoint(TheirCharacter[_G.AimPart].Position)
+			if Visible then
+				local RealMag = (Vector2.new(Mouse.X, Mouse.Y) - Vector2.new(CharacterRoot.X, CharacterRoot.Y)).Magnitude
+				if RealMag < dist and RealMag < FOVCircle.Radius then
+					dist = RealMag
+					Target = TheirCharacter
+				end
+			end
+		end
+	end
+	return Target
+end
+
+UIS.InputBegan:Connect(function(Input)
+	if Input.UserInputType == Enum.UserInputType.MouseButton2 then
+		HoldingM2 = true
+		Active = true
+		Lock = true
+		if Active then
+        	local The_Enemy = FindNearestPlayer()
+			while HoldingM2 do task.wait(.000001)
+				if Lock and The_Enemy ~= nil then
+					local Future = The_Enemy.HumanoidRootPart.CFrame + (The_Enemy.HumanoidRootPart.Velocity * Epitaph + HeadOffset)
+					MyView.CFrame = CFrame.lookAt(MyView.CFrame.Position, Future.Position)
+					CursorLock()
+				end
+			end
+		end
+	end
+end)
+UIS.InputEnded:Connect(function(Input)
+	if Input.UserInputType == Enum.UserInputType.MouseButton2 then
+		UnLockCursor()
+	end
+end)
+game.StarterGui:SetCore("SendNotification", {Title = "Working.", Text = "Success, Script Loaded.", Duration = 4,})
+   end,
+})
+
+local Button = BloxFruitsTab:CreateButton({
+   Name = "HohoHub",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
+   end,
+})
+
+
+
+
+local JailBreakTab = Window:CreateTab("JailBreak", nil) -- Title, Image
+
+local Button = JailBreakTab:CreateButton({
+   Name = "Auto Rob",
+   Callback = function()
+   loadstring(game:HttpGet('http://scripts.projectauto.xyz/AutoRobV6'))()
+   end,
+})
+
+
+local Button = JailBreakTab:CreateButton({
+   Name = "Auto Arrest",
+   Callback = function()
+   loadstring(game:HttpGet('http://scripts.projectauto.xyz/AutoArrestV4'))()
+   end,
+})
+
+local Button = JailBreakTab:CreateButton({
+   Name = "Car Speed",
+   Callback = function()
+   -- I DO NOT OWN THIS SCRIPT
+
+---By:Unknown
+dir = 0
+gs = game.GetService
+gs(game,"RunService").RenderStepped:connect(function()
+   for i,v in next,workspace.Vehicles:children() do
+       if v.Name ~= "Heli" then
+           if v:FindFirstChild("Engine") then
+               local bf,cf = v.Engine:FindFirstChild("NewForce"),v:GetPrimaryPartCFrame().lookVector
+               if not bf then 
+                   bf = v.Engine:FindFirstChild("BodyForce") or v.Engine:FindFirstChild("VectorForce")
+                   if bf then
+                       bf = bf:Clone()
+                       bf.Parent = v.Engine
+                       bf.Name = "NewForce"
+                   end
+               end
+               if bf then
+                   local fa = 1
+                   if v.Name:lower():find("bike") then fa = .3 elseif v.Name:lower():find("bugg") then fa = .5 end
+                   if v.Seat.PlayerName.Value ~= game:GetService("Players").LocalPlayer.Name then fa = 0 end
+                   bf.Force = Vector3.new(cf.X*300000*dir*fa,0,cf.Z*300000*dir*fa)
+               end
+           end
+      end
+   end
+end)
+val = {
+{Enum.KeyCode.W,1};
+{Enum.KeyCode.S,-1};
+}
+uis = gs(game,"UserInputService")
+chk = function(k)
+   for i,v in next,val do
+       if v[1]==k.KeyCode then
+           return v[2]
+       end
+   end
+end
+uis.InputBegan:connect(function(k)
+dir = chk(k) or dir
+end)
+uis.InputEnded:connect(function(k)
+   if chk(k) == dir then
+       dir = 0
+   end
+end)
+   end,
+})
+
+
+
+
+
+
+local RivalsTab = Window:CreateTab("Rivals", nil) -- Title, Image
+
+local Button = RivalsTab:CreateButton({
+   Name = "Z3us",
+   Callback = function()
+   loadstring(game:HttpGet(('https://raw.githubusercontent.com/blackowl1231/ZYPHERION/refs/heads/main/main.lua')))()
+   end,
+})
+
+
+local Button = RivalsTab:CreateButton({
+   Name = "8Bit (key)",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/8bits4ya/rivals-v3/refs/heads/main/main.lua"))()
+   end,
+})
+
+
+local BladeballTab = Window:CreateTab("Blade Ball", nil) -- Title, Image
+
+local Button = BladeballTab:CreateButton({
+   Name = "Red Circle",
+   Callback = function()
+   getgenv().visualizer = true
+loadstring(game:HttpGet("https://raw.githubusercontent.com/1f0yt/community/main/RedCircleBlock"))()
+   end,
+})
+
+
+
+local Button = BladeballTab:CreateButton({
+   Name = "Argon",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Loader.lua"))()
+   end,
+})
+
+
+local MM2Tab = Window:CreateTab("MM2", nil) -- Title, Image
+
+local Button = MM2Tab:CreateButton({
+   Name = "Thunder Hub",
+   Callback = function()
+   loadstring(game:HttpGet('https://raw.githubusercontent.com/Roman34296589/SnapSanixHUB/refs/heads/main/SnapSanixHUB.lua'))()
+   end,
+})
+
+
+local Button = MM2Tab:CreateButton({
+   Name = "Auto farm and more",
+   Callback = function()
+   loadstring(game:HttpGet("https://globalexp.xyz/"))()
+   end,
+})
+
+
+
+
+
+local SabTab = Window:CreateTab("Sab", nil) -- Title, Image
+
+
+local Button = SabTab:CreateButton({
+   Name = "Ringta",
+   Callback = function()
+   loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/4dfd8f97b48ec9c81706cb36a3f382d8.lua"))()
+   end,
+})
+
+local SpeedhubxButton = MainTab:CreateButton({
+   Name = "speed Hub X",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua",true))()
+   end,
+})
+
+
+local FeseraphicButton = MainTab:CreateButton({
+   Name = "Fe seraphic",
+   Callback = function()
+   loadstring(game:HttpGet("https://pastefy.app/59mJGQGe/raw"))()
+   end,
+})
