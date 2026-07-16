@@ -56,15 +56,36 @@ local ESPButton = MainTab:CreateButton({
 })
 
 local SpeedButton = MainTab:CreateButton({
-   Name = "SpeedGui",
+   Name = "Dex",
    Callback = function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/TIG0Z/mRXScripts/refs/heads/main/speed-1.txt"))()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))()
+   end,
+})
+
+
+local SpeedButton = MainTab:CreateButton({
+   Name = "Cobalt (rspy) ",
+   Callback = function()
+   loadstring(game:HttpGet("https://github.com/notpoiu/cobalt/releases/latest/download/Cobalt.luau"))()
+   end,
+})
+
+
+local SpeedButton = MainTab:CreateButton({
+   Name = "CMD Admin",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/lxte/cmd/main/main.lua"))()
    end,
 })
 
 
 
-
+local SpeedButton = MainTab:CreateButton({
+   Name = "Nameless admin REWORK",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source.lua"))()
+   end,
+})
 
 
 
@@ -214,6 +235,21 @@ local Button = BloxFruitsTab:CreateButton({
    end,
 })
 
+local Button = BloxFruitsTab:CreateButton({
+   Name = "Axonic (KEYLESS)",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Kenniel123/BloxFruits/refs/heads/main/BloxFruits"))()
+   end,
+})
+
+
+local Button = BloxFruitsTab:CreateButton({
+   Name = "Speed hub x",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua",true))()
+   end,
+})
+
 
 
 
@@ -340,6 +376,14 @@ local Button = MM2Tab:CreateButton({
    end,
 })
 
+local Button = MM2Tab:CreateButton({
+   Name = "vertex",
+   Callback = function()
+   loadstring(game:HttpGet('https://raw.smokingscripts.org/vertex.lua'))()
+
+   end,
+})
+
 
 local Button = MM2Tab:CreateButton({
    Name = "Auto farm and more",
@@ -376,3 +420,69 @@ local FeseraphicButton = MainTab:CreateButton({
    loadstring(game:HttpGet("https://pastefy.app/59mJGQGe/raw"))()
    end,
 })
+
+
+local BABFTTab = Window:CreateTab("BABFT", nil) -- Title, Image
+
+local Button = BABFTTab:CreateButton({
+   Name = "C4RL BABFT keyless",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/unrexl/Scripts/refs/heads/main/BABFT"))()
+   end,
+})
+
+local Button = BABFTTab:CreateButton({
+   Name = "OP script (idk name..)",
+   Callback = function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Build-A-Boat-For-Treasure-Ultimte-B3BFT-Script-28601"))()
+   end,
+})
+
+
+
+local Tab = Window:CreateTab("BSS", nil) -- Title, Image
+
+local Button = Tab:CreateButton({
+   Name = "MacroWare",
+   Callback = function()
+    loadstring(game:HttpGet("https://macroware.cc/loader.lua"))()
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Kron Hub",
+   Callback = function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/DevKron/Kron_Hub/refs/heads/main/version_1.0'))("")
+   end,
+})
+
+
+
+local Tab = Window:CreateTab("Scary Shawarma", nil) -- Title, Image
+
+local Button = Tab:CreateButton({
+   Name = "EF HUB",
+   Callback = function()
+    loadstring(game:HttpGet('https://api.rubis.app/v2/scrap/wBNEkpigM0J1y5lV/raw', true))()
+   end,
+})
+
+
+local Tab = Window:CreateTab("TBD", nil) -- Title, Image
+
+
+local Button = Tab:CreateButton({
+   Name = "Front-Evill",
+   Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Front-Evill/Script-Hub/refs/heads/main/TiemBomb.V1.lua"))()
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "PhantomX",
+   Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/AlphaBay00/PhantomXLoader/main/Ld.lua.txt"))()
+   end,
+})
+
+
