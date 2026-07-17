@@ -40,6 +40,9 @@ local Window = Rayfield:CreateWindow({
 local MainTab = Window:CreateTab("Main", nil) -- Title, Image
 local MainSection = MainTab:CreateSection("Main")
 
+
+
+
 local AdminButton = MainTab:CreateButton({
    Name = "InfYield Admin",
    Callback = function()
@@ -48,12 +51,14 @@ local AdminButton = MainTab:CreateButton({
    end,
 })
 
+
 local ESPButton = MainTab:CreateButton({
    Name = "ESP",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/zzerexx/scripts/main/UniversalEspUI.lua"))()
    end,
 })
+
 
 local SpeedButton = MainTab:CreateButton({
    Name = "Dex",
@@ -86,6 +91,49 @@ local SpeedButton = MainTab:CreateButton({
    loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source.lua"))()
    end,
 })
+
+
+local SpeedButton = MainTab:CreateButton({
+   Name = "Cerberus ( Universal )",
+   Callback = function()
+    loadstring(game:HttpGet("http://getcerberus.com/main.lua"))()
+   end,
+})
+
+
+local SpeedButton = MainTab:CreateButton({
+   Name = "UNC TEST ( Universal )",
+   Callback = function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/miguelangelsx22-byte/unctestforvoltx/refs/heads/main/UNCTest'))()
+   end,
+})
+
+
+
+local SpeedButton = MainTab:CreateButton({
+   Name = "Fe Trolling Hub",
+   Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/FE%20Trolling%20GUI.luau"))()
+   end,
+})
+
+
+local SpeedButton = MainTab:CreateButton({
+   Name = "R15 Emotes",
+   Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/sypcerr/scripts/refs/heads/main/c15.lua",true))()
+   end,
+})
+
+
+local SpeedButton = MainTab:CreateButton({
+   Name = "Opiam hub( Universal )",
+   Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/HydraRBXM/opiamhub/refs/heads/main/OpiamMain"))()
+   end,
+})
+
+
 
 
 
@@ -691,5 +739,37 @@ local Button = Tab:CreateButton({
    Name = "ESP",
    Callback = function()
     loadstring(game:HttpGet("https://pastebin.com/raw/taKJx12p"))()
+   end,
+})
+
+
+
+local Tab = Window:CreateTab("Dungeon Quest", nil) -- Title, Image
+
+
+local Button = Tab:CreateButton({
+   Name = "OP ( no name ) ",
+   Callback = function()
+    loadstring(game:HttpGet("https://aged-moomnn-3817.mjcontega2-cce.workers.dev"))()
+   end,
+})
+
+
+local Button = Tab:CreateButton({
+   Name = "EZHub",
+   Callback = function()
+    loadstring(game:HttpGet("https://pastefy.app/GirWhoqc/raw"))()
+   end,
+})
+
+
+
+local Tab = Window:CreateTab("Tower Of Hell", nil) -- Title, Image
+
+
+local Button = Tab:CreateButton({
+   Name = "KaiXar",
+   Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/madenciicom/towerofhell/refs/heads/main/TowerOfHell_KaiXar.lua"))()
    end,
 })
