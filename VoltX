@@ -6,7 +6,7 @@ local Window = Rayfield:CreateWindow({
    LoadingTitle = "Loading VoltX Scripthub",
    LoadingSubtitle = "Miggy",
    ShowText = "Rayfield", -- for mobile users to unhide rayfield, change if you'd like
-   Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+   Theme = "AmberGlow", -- Check https://docs.sirius.menu/rayfield/configuration/themes
 
    ToggleUIKeybind = "K", -- The keybind to toggle the UI visibility (string like "K" or Enum.KeyCode)
 
@@ -275,6 +275,20 @@ end)
 game.StarterGui:SetCore("SendNotification", {Title = "Working.", Text = "Success, Script Loaded.", Duration = 4,})
    end,
 })
+
+
+
+Rayfield:Notify({
+   Title = "credits",
+   Content = "miggymango (discord)",
+   Duration = 6.5,
+   Image = nil,
+})
+
+
+
+
+
 
 local Button = BloxFruitsTab:CreateButton({
    Name = "HohoHub",
@@ -773,3 +787,26 @@ local Button = Tab:CreateButton({
     loadstring(game:HttpGet("https://raw.githubusercontent.com/madenciicom/towerofhell/refs/heads/main/TowerOfHell_KaiXar.lua"))()
    end,
 })
+
+
+
+local Tab = Window:CreateTab("Fish It", nil) -- Title, Image
+
+
+
+local Button = Tab:CreateButton({
+   Name = "Chloe X ( Keyless )",
+   Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MajestySkie/Chloe-X/main/Main/ChloeX"))()
+   end,
+})
+
+
+
+local Tab = Window:CreateTab("Credits", nil) -- Title, Image
+
+
+local Label = Tab:CreateLabel("Miggymango ( discord )", nil, Color3.fromRGB(nil), false) -- Title, Icon, Color, IgnoreTheme
+
+
+
